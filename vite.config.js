@@ -3,18 +3,14 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 
-// https://vite.dev/config/
 export default defineConfig({
-  theme: {
-    extend: {
-      fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        bebas: ['Bebas Neue', 'sans-serif'],
-      },
-    },
-  },
   plugins: [react(),
     tailwindcss()
   ],
+  build: {
+    rollupOptions: {
+      external: ['react-icons', 'lucide-react']
+    }
+  }
 })
 
